@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+@keyframes status-bar-animate {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 40%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+@keyframes remainingMessage-animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  background: hsl(229, 57%, 11%) url(../images/bg-desktop.png) no-repeat;
+  background-position: bottom;
+  background-size: 100% 50%;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul {
+  list-style: none;
+}
+span {
+  font-weight: 700;
+}
+.storage--component {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.fylo--storage {
+  background-color: hsl(228, 56%, 26%);
+  padding: 4rem 13rem 4rem 4rem;
+  border-radius: 0.8rem;
+  border-top-right-radius: 8rem;
+}
+.fylo--logo {
+  width: 11rem;
+  margin-bottom: 3rem;
+}
+.storage--icons {
+  display: flex;
+  justify-content: space-between;
+  width: 12rem;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.8rem;
+  background-color: hsl(229, 57%, 11%);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+.icon img {
+  width: 1.6rem;
+}
+.icon:hover {
+  background-color: hsl(228, 56%, 26%);
+}
+.storage--status {
+  background-color: hsl(228, 56%, 26%);
+  margin-left: 1.8rem;
+  padding: 2rem;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 1rem;
+  width: 50rem;
+  position: relative;
+}
+.status--bar {
+  height: 2rem;
+  background-color: hsl(229, 57%, 11%);
+  margin: 2rem 0 0.5rem 0;
+  border-radius: 1.2rem;
+  padding: 0.2rem;
+}
+.status--bar__filler {
+  width: 0%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  );
+  border-radius: 1.2rem;
+  padding: 0.2rem;
+  animation: status-bar-animate 1.5s;
+  animation-fill-mode: forwards;
+}
+.status--bar__filler--ball {
+  background-color: white;
+  height: 100%;
+  width: 1.3rem;
+  border-radius: 50%;
+  margin-left: auto;
+}
+.storage--max__amount {
+  display: inline-block;
+  float: right;
+}
+.storage--remainingMessage {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  position: absolute;
+  top: -3rem;
+  right: 4.5%;
+  opacity: 0;
+  animation: remainingMessage-animate 0.7s;
+  animation-fill-mode: forwards;
+  animation-delay: 1.5s;
+}
+.storage--remainingMessage::after {
+  content: "";
+  width: 2rem;
+  height: 4rem;
+  background-color: white;
+  position: absolute;
+  right: 0;
+  bottom: -1rem;
+  padding-left: -5rem;
+  transform: skewY(50deg);
+}
+.amount {
+  font-size: 1rem;
+  color: hsl(229, 7%, 55%);
+}
+@media only screen and (min-width: 1440px) {
+  html {
+    font-size: 67%;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  html {
+    font-size: 70%;
+  }
+}
+@media only screen and (max-width: 1160px) {
+  html {
+    font-size: 61%;
+  }
+}
+@media only screen and (max-width: 814px) {
+  html {
+    font-size: 58%;
+  }
+}
+@media only screen and (max-width: 756px) {
+  html {
+    font-size: 56%;
+  }
+  .storage--component {
+    justify-content: center;
+  }
+  .fylo--storage {
+    margin-bottom: 2rem;
+  }
+  .storage--icons {
+    width: 15rem;
+  }
+  .icon img {
+    width: 2.5rem;
+  }
+  .storage--usedMessage {
+    text-align: center;
+  }
+  .storage--status {
+    width: 90%;
+    padding: 5rem 2rem;
+    margin-left: 0;
+  }
+  .storage--remainingMessage {
+    width: 60%;
+    text-align: center;
+    padding: 1rem 2rem;
+    top: 15rem;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 3.5rem;
+  }
+  .storage--remainingMessage::after {
+    display: none;
+  }
+}
+@media only screen and (max-width: 414px) {
+  body {
+    background-image: url(../images/bg-mobile.png);
+    background-position: center;
+    background-size: cover;
+  }
+  .fylo--storage {
+    width: 90%;
+  }
+}
